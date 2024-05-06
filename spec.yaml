@@ -45,6 +45,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WalletDto"
+        default:
+          $ref: "#/components/responses/Error"
+
       tags:
         - Non Custodial Wallets
     get:
@@ -712,6 +715,21 @@ paths:
       tags:
         - Non Custodial Wallets RPC
 components:
+  responses:
+    Error:
+      description: Error Response
+      headers:
+        X-Request-ID:
+          $ref: "#/components/headers/X-Request-ID"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+  headers:
+    X-Request-ID:
+      schema:
+        type: string
+      description: Unique ID correlated to the API request. Please provide it in any support ticket you create or on Github issues related to Fireblocks SDKs
   securitySchemes:
     bearerTokenAuth:
       type: http
@@ -1112,3 +1130,10 @@ components:
       required:
         - status
         - setupStatus
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: number
