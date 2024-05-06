@@ -1135,5 +1135,7 @@ components:
       properties:
         message:
           type: string
+          example: "Unauthorized: Token was not accepted"
         code:
           type: number
+          example: -7
