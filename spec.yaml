@@ -31,7 +31,7 @@ paths:
   /v1/ncw/wallets:
     post:
       x-code-samples:
-          lang: JavaScript
+        - lang: JavaScript
           label: JS
           source: |
             const newWallet = await fireblocks.NCW.createWallet();
@@ -49,7 +49,7 @@ paths:
         - Non Custodial Wallets
     get:
       x-code-samples:
-            lang: JavaScript
+          - lang: JavaScript
             label: JS
             source: |
               const wallets = await fireblocks.NCW.getWallets({})
@@ -108,7 +108,7 @@ paths:
   /v1/ncw/wallets/{walletId}:
     get:
       x-code-samples:
-          lang: JavaScript
+        - lang: JavaScript
           label: JS
           source: |
             const wallet = await fireblocks.NCW.getWallet("walletId")
