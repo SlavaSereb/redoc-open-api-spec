@@ -49,7 +49,7 @@ x-tagGroups:
     tags: [ External Whitelisted Wallets, Internal Whitelisted Wallets, Contract Whitelisted Wallets ]
 security:
   - bearerTokenAuth: []
-  - ApiKeyAuth: []
+    ApiKeyAuth: []
 paths:
   #  VAULT
   "/vault/accounts":
