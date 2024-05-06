@@ -56,6 +56,10 @@ paths:
             label: JS
             source: |
               const wallets = await fireblocks.NCW.getWallets({})
+          - lang: TypeScript
+            label: TS
+            source: |
+              const wallets = await fireblocks.NCW.getWallets({})
       operationId: findAllWallets
       summary: List wallets
       description: Get all Non Custodial Wallets
