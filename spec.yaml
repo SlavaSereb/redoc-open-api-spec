@@ -15,8 +15,13 @@ tags:
   - name: Non Custodial Wallet Devices
   - name: Non Custodial Wallets RPC
 x-tagGroups:
-  name: 'NCW'
-  tags: ['Non Custodial Wallets', 'Non Custodial Wallet Accounts']
+  - name: 'NCW Wallets & Accounts'
+    tags: ['Non Custodial Wallets', 'Non Custodial Wallet Accounts']
+  - name: 'NCW Assets & Devices'
+    tags: ['Non Custodial Wallet Assets', 'Non Custodial Wallet Devices']
+  - name: 'NCW RPC'
+    tags: ['Non Custodial Wallets RPC']
+
 servers:
   - url: "https://sandbox-api.fireblocks.io"
     description: Fireblocks Sandbox Environment
