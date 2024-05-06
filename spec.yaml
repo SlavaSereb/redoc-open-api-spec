@@ -2606,7 +2606,13 @@ paths:
             name: Fireblocks SDK Javascript example
       responses:
         "200":
-          $ref: "#/components/responses/ExternalWalletList"
+          description: A list of external wallets
+          content:
+            "application/json":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UnmanagedWallet"
         default:
           $ref: "#/components/responses/Error"
     post:
