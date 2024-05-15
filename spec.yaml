@@ -153,7 +153,7 @@ paths:
         "200":
           description: A Vault Account object
           content:
-            "*/*":
+            application/json:
               schema:
                 $ref: "#/components/schemas/VaultAccount"
         default:
