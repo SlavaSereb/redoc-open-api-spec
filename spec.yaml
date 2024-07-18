@@ -14469,6 +14469,23 @@ components:
           description: The results of the AML address registration.
           items:
             $ref: '#/components/schemas/AmlRegistrationResult'
+    MevProtection:
+      description: |
+        Choose the MEV protection provider. 
+        Currently only `default` available.
+      type: string
+      enum:
+        - default
+    NodeControls:
+      description: |
+        Configure special node requirements.
+
+        * Note: This is a premium feature that should be enabled in your workspace.
+          Please contract your Customer Success Manager/Fireblocks Support for more info.
+      type: object
+      properties:
+        mevProtection:
+          $ref: '#/components/schemas/MevProtection'
     UnsignedMessage:
       type: object
       properties:
@@ -14513,6 +14530,8 @@ components:
     ExtraParameters:
       type: object
       properties:
+        nodeControls:
+          $ref: '#/components/schemas/NodeControls'
         rawMessageData:
           type: object
           properties:
@@ -14527,21 +14546,6 @@ components:
                 - MPC_ECDSA_SECP256R1
                 - MPC_EDDSA_ED25519
           description: Object containing messages for raw signing and the algorithm to be used.
-        nodeControl:
-          description: |
-            Set special node requirements.
-
-            * Note: This feature is a paid premium feature that should be enabled in your workspace.
-            Please contract your Customer Success Manager/Fireblocks Support for more info.
-          type: object
-          properties:
-            mevProtection:
-              description: |
-                Choose the MEV protection provider. 
-                Currently only `default` available.
-              type: string
-              enum: 
-                - default
         contractCallData:
           type: string
           description: Hex encoded contract call data as a string.
@@ -14568,13 +14572,7 @@ components:
         For `RAW` operations, add the key `rawMessageData` with the value set to the [raw message data structure.](https://developers.fireblocks.com/reference/raw-signing-objects#rawmessagedata)
 
         For `CONTRACT_CALL` operations, add the key `contractCallData` with the value set to the Ethereum smart contract Application Binary Interface (ABI) payload. The Fireblocks [development libraries](https://developers.fireblocks.com/docs/ethereum-development#convenience-libraries) are recommended for building contract call transactions.
-
-        For MEV Protection, add the `nodeControls` object, with the `mevProtection` property while the value is `default`.
-
-        * Note: `rawMessageData`, `contractCallData`, and `inputsSelection` cannot be used together in the same call.
-        
-        * Note: Node Controls & MEV Protection are paid premium features that should be enabled in your workspace.
-               Please contact your Customer Success Manager/Fireblocks Support for more info.
+        *Note: `rawMessageData`, `contractCallData`, and `inputsSelection` cannot be used together in the same call."
     SignedMessage:
       type: object
       description: Signed Message Object (for RAW signing responses)
